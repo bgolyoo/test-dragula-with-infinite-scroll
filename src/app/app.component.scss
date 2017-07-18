@@ -3,3 +3,23 @@
   height: 80vh;
   overflow-y: scroll;
 }
+
+.card {
+  // border: none;
+  background-color: #fff;
+  border-radius: 0;
+  .card-block {
+    margin: 5px;
+    padding: 0;
+    .card-title,
+    .card-subtitle,
+    .card-text {
+      font-size: 15px;
+    }
+    .card-title .handle {
+      height: 20px;
+      width: 20px;
+      background-color: peru;
+    }
+  }
+}

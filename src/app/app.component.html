@@ -10,11 +10,35 @@
         (scrolled)="onScrollDown()" 
         (scrolledUp)="onScrollUp()" 
         [scrollWindow]="false"
+        [dragula]="'infinite-bag'"
       >
 
-        <div *ngFor="let post of getPosts(maxPosts)" class="card">
+        <div *ngFor="let post of getPostsAboveThreshold(threshold)" class="card card-outline-primary">
           <div class="card-block">
-            <h4 class="card-title">{{getUser(post.userId).name}}</h4>
+            <h4 class="card-title">
+              <span class="badge badge-primary">{{post.likes}} likes</span>
+              {{getUser(post.userId).name}}
+            </h4>
+            <h6 class="card-subtitle mb-2 text-muted">{{getUser(post.userId).email}}</h6>
+            <p class="card-text">{{post.body | slice:0:50}}...</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-block">
+            <div class="card-title">
+              <div class="handle"></div>
+              Threshold: {{threshold}}
+            </div>
+          </div>
+        </div>
+
+        <div *ngFor="let post of getPostsBelowThreshold(maxPosts)" class="card card-outline-primary">
+          <div class="card-block">
+            <h4 class="card-title">
+              <span class="badge badge-primary">{{post.likes}} likes</span>
+              {{getUser(post.userId).name}}
+            </h4>
             <h6 class="card-subtitle mb-2 text-muted">{{getUser(post.userId).email}}</h6>
             <p class="card-text">{{post.body | slice:0:50}}...</p>
           </div>

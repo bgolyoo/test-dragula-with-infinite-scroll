@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { DragulaModule } from 'ng2-dragula/ng2-dragula';
 import { HttpModule } from '@angular/http';
 import { DataService } from './data.service';
 
@@ -14,7 +15,8 @@ import { DataService } from './data.service';
   imports: [
     HttpModule,
     BrowserModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    DragulaModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
